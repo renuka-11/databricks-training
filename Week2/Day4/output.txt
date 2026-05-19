@@ -1,170 +1,118 @@
---Basic Queries
--- Q1 output
+1
+Query #1 Execution time: 0.2ms
+todayDate	currentTime	currentDateTime
+2026-05-16	09:46:13	2026-05-16 09:46:13
 
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe    | 28  | 50000.00 | 1             | 2020-01-15 |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 5      | Charlie P.  | 29  | 50000.00 | 2             | 2019-12-01 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-| 7      | Eve Black   | 40  | 55000.00 | 3             | 2021-08-30 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
-| 10     | Hannah Lee  | 30  | 53000.00 | 4             | 2020-02-25 |
+2
+Query #1 Execution time: 0.28ms
+order_id	year	month	day
+1	2024	1	15
+2	2024	2	18
+3	2024	3	2
+4	2024	3	9
+5	2024	1	7
 
--- Q2 output
-| name        | salary   |
-| ----------- | -------- |
-| John Doe    | 50000.00 |
-| Jane Smith  | 60000.00 |
-| Bob Brown   | 80000.00 |
-| Alice Blue  | 45000.00 |
-| Charlie P.  | 50000.00 |
-| David Green | 70000.00 |
-| Eve Black   | 55000.00 |
-| Frank White | 48000.00 |
-| Grace Kelly | 65000.00 |
-| Hannah Lee  | 53000.00 |
+3
+Query #1 Execution time: 0.31ms
+order_id	month_name	day_name
+1	January	Monday
+2	February	Sunday
+3	March	Saturday
+4	March	Saturday
+5	January	Sunday
 
---- Q3 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-| 7      | Eve Black   | 40  | 55000.00 | 3             | 2021-08-30 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
+4
+Query #1 Execution time: 0.33ms
+order_id	customer_name	order_date	order_timestamp	delivery_date	order_amount
+2	Veena	2024-02-18	2024-02-18 18:45:20	2024-02-22	3200.5
+3	Ravi	2024-03-02	2024-03-02 09:15:10	2024-03-08	4100.75
+4	Anil	2024-03-09	2024-03-09 14:05:55	2024-03-15	1800.0
+5	Suresh	2024-01-07	2024-01-07 23:55:00	2024-01-12	2900.0
 
----Q4 output
-| name      |
-| --------- |
-| IT        |
-| HR        |
-| Finance   |
-| Marketing |
+5
+Query #1 Execution time: 0.35ms
+order_id	customer_name	order_date	order_timestamp	delivery_date	order_amount
+1	Karthik	2024-01-15	2024-01-15 10:30:45	2024-01-20	2500.0
 
----Q5 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe    | 28  | 50000.00 | 1             | 2020-01-15 |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
+6
+Query #1 Execution time: 0.29ms
+order_date	plus_5_days	minus_3_days
+2024-01-15	2024-01-20	2024-01-12
+2024-02-18	2024-02-23	2024-02-15
+2024-03-02	2024-03-07	2024-02-28
+2024-03-09	2024-03-14	2024-03-06
+2024-01-07	2024-01-12	2024-01-04
 
----String Matching Queries
----Q6 output
-| emp_id | name       | age | salary   | department_id | hire_date  |
-| ------ | ---------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe   | 28  | 50000.00 | 1             | 2020-01-15 |
-| 2      | Jane Smith | 34  | 60000.00 | 2             | 2019-07-23 |
+7
+Query #1 Execution time: 0.33ms
+order_id	delivery_days
+1	5
+2	4
+3	6
+4	6
+5	5
 
----Q7 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe    | 28  | 50000.00 | 1             | 2020-01-15 |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 10     | Hannah Lee  | 30  | 53000.00 | 4             | 2020-02-25 |
+8
+Query #1 Execution time: 0.3ms
+order_id	days_diff	months_diff
+1	5	0
+2	4	0
+3	6	0
+4	6	0
+5	5	0
 
----Q8 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 5      | Charlie P.  | 29  | 50000.00 | 2             | 2019-12-01 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
-| 10     | Hannah Lee  | 30  | 53000.00 | 4             | 2020-02-25 |
+9
+Query #1 Execution time: 0.28ms
+order_id	last_day_of_month
+1	2024-01-31
+2	2024-02-29
+3	2024-03-31
+4	2024-03-31
+5	2024-01-31
 
---Q9 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
+10
+Query #1 Execution time: 0.28ms
+order_id	first_day_of_month
+1	2024-01-01
+2	2024-02-01
+3	2024-03-01
+4	2024-03-01
+5	2024-01-01
 
---Q10 output
-| emp_id | name      | age | salary   | department_id | hire_date  |
-| ------ | --------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe  | 28  | 50000.00 | 1             | 2020-01-15 |
-| 3      | Bob Brown | 45  | 80000.00 | 1             | 2018-02-12 |
+11
+Query #1 Execution time: 0.31ms
+order_id	formatted_date
+1	15-01-2024
+2	18-02-2024
+3	02-03-2024
+4	09-03-2024
+5	07-01-2024
 
----Data Queries
---Q11 output
-| emp_id | name       | age | salary   | department_id | hire_date  |
-| ------ | ---------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe   | 28  | 50000.00 | 1             | 2020-01-15 |
-| 10     | Hannah Lee | 30  | 53000.00 | 4             | 2020-02-25 |
+12
+Query #1 Execution time: 0.31ms
+order_id	formatted_timestamp
+1	15-01-2024 10:30:45
+2	18-02-2024 18:45:20
+3	02-03-2024 09:15:10
+4	09-03-2024 14:05:55
+5	07-01-2024 23:55:00
 
---Q12 output
-| emp_id | name     | age | salary   | department_id | hire_date  |
-| ------ | -------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe | 28  | 50000.00 | 1             | 2020-01-15 |
+13
+Query #1 Execution time: 0.3ms
+order_id	customer_name	order_date	order_timestamp	delivery_date	order_amount
+1	Karthik	2024-01-15	2024-01-15 10:30:45	2024-01-20	2500.0
+5	Suresh	2024-01-07	2024-01-07 23:55:00	2024-01-12	2900.0
 
---Q13 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
+14
+Query #1 Execution time: 0.35ms
+order_id	customer_name	order_date	order_timestamp	delivery_date	order_amount
+There are no results to be displayed.
 
---Q14 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 7      | Eve Black   | 40  | 55000.00 | 3             | 2021-08-30 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-
---Q15 output
-| emp_id        | name | age | salary | department_id | hire_date |
-| ------------- | ---- | --- | ------ | ------------- | --------- |
-| No rows found |      |     |        |               |           |
-
----Aggregate Functions
---Q16 output
-| SUM(salary) |
-| ----------- |
-| 576000.00   |
-
---Q17 output
-| AVG(salary) |
-| ----------- |
-| 57600.00    |
-
---Q18 output
-| MIN(salary) |
-| ----------- |
-| 45000.00    |
-
---Q19 output
-| department_id | COUNT(*) |
-| ------------- | -------- |
-| 1             | 3        |
-| 2             | 2        |
-| 3             | 2        |
-| 4             | 2        |
-| NULL          | 1        |
-
---Q20 output
-| department_id | AVG(salary) |
-| ------------- | ----------- |
-| 1             | 65000.00    |
-| 2             | 55000.00    |
-| 3             | 50000.00    |
-| 4             | 61500.00    |
-| NULL          | 48000.00    |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+15
+Query #1 Execution time: 0.39ms
+order_id	order_date	financial_year
+1	2024-01-15	2023-2024
+2	2024-02-18	2023-2024
+3	2024-03-02	2023-2024
+4	2024-03-09	2023-2024
+5	2024-01-07	2023-2024
