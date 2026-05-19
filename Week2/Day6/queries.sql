@@ -1,53 +1,35 @@
--- Basic Queries
----Q1 
-SELECT * FROM Employee;
----Q2
-select name ,salary from Employee;
----Q3
-select * from Employee where age>30;
----Q4
-select name from Department;
----Q5
-select * from Employee where department_id=1;
+-- LEVEL 1
+SELECT * FROM Employees WHERE salary IS NULL;
+SELECT * FROM Orders WHERE discount IS NOT NULL;
+SELECT * FROM Products WHERE category IS NULL;
+SELECT COUNT(*) AS null_managers FROM Employees WHERE manager_id IS NULL;
 
----String Matching Queries
---Q6 
-select * from Employee where name LIKE 'J%';
---Q7
-select * from Employee where name LIKE '%e';
---Q8
-select * from Employee where name LIKE '%a%';
---Q9
-select * from Employee where name LIKE '_________';
---Q10
-select * from Employee where name LIKE '_o%';
+-- LEVEL 2 (FIXED)
+SELECT emp_id,IFNULL(salary,0)AS salary FROM Employees;
+SELECT emp_id,IFNULL(bonus,1000)AS bonus FROM Employees;
+SELECT order_id,IFNULL(amount,500)AS amount FROM Orders;
+SELECT product_id,IFNULL(stock,0)AS stock FROM Products;
 
----Data Queries
---Q11
-select * from Employee where Year(hire_date)=2020;
---Q12
-select * from Employee where month(hire_date)=1;
---Q13
-select * from Employee where hire_date<'2019-01-01';
---Q14
-select * from Employee where hire_date>='2021-03-01';
---Q15
-select * from Employee where hire_date>=CURDATE()- INTERVAL 2 year;
+-- LEVEL 3
+SELECT emp_id,COALESCE(salary,bonus)AS earnings FROM Employees;
+SELECT emp_id,COALESCE(salary,bonus,0)AS total_income FROM Employees;
+SELECT product_id,COALESCE(price,1000)AS price FROM Products;
+SELECT customer_name,COALESCE(amount,discount,0)AS payment FROM Orders;
 
----Aggregate Functions
---Q16
-select sum(salary) from Employee
---Q17
-select avg(salary) from Employee
---Q18
-select min(salary) from Employee
---Q19
-select department_id, count(*) from Employee GROUP BY department_id;
---Q20
-select department_id,avg(salary) from Employee group by department_id;
+-- LEVEL 4
+SELECT emp_id,NULLIF(salary,0)AS salary FROM Employees;
+SELECT order_id,NULLIF(discount,0)AS discount FROM Orders;
+SELECT order_id,amount/NULLIF(discount,0)AS safe_division FROM Orders;
+SELECT order_id,NULLIF(coupon_code,'DISC10')AS coupon FROM Orders;
 
+-- LEVEL 5
+SELECT emp_id,COALESCE(salary,0)+COALESCE(bonus,0)AS total_earnings
+FROM Employees;
+SELECT * FROM Employees WHERE salary IS NULL AND bonus IS NULL;
+SELECT * FROM Products WHERE price IS NULL AND category IS NOT NULL;
+SELECT * FROM Orders WHERE amount IS NULL AND discount IS NULL;
 
-
-
-
-
+-- LEVEL 6
+SELECT emp_id,COALESCE(salary,bonus,1000)AS income FROM Employees;
+SELECT order_id,amount-COALESCE(discount,0)AS final_amount FROM Orders;
+SELECT emp_id FROM Employees WHERE salary IS NULL AND manager_id IS NOT NULL;
