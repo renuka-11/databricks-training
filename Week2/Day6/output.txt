@@ -1,170 +1,227 @@
---Basic Queries
--- Q1 output
-
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe    | 28  | 50000.00 | 1             | 2020-01-15 |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 5      | Charlie P.  | 29  | 50000.00 | 2             | 2019-12-01 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-| 7      | Eve Black   | 40  | 55000.00 | 3             | 2021-08-30 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
-| 10     | Hannah Lee  | 30  | 53000.00 | 4             | 2020-02-25 |
-
--- Q2 output
-| name        | salary   |
-| ----------- | -------- |
-| John Doe    | 50000.00 |
-| Jane Smith  | 60000.00 |
-| Bob Brown   | 80000.00 |
-| Alice Blue  | 45000.00 |
-| Charlie P.  | 50000.00 |
-| David Green | 70000.00 |
-| Eve Black   | 55000.00 |
-| Frank White | 48000.00 |
-| Grace Kelly | 65000.00 |
-| Hannah Lee  | 53000.00 |
-
---- Q3 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-| 7      | Eve Black   | 40  | 55000.00 | 3             | 2021-08-30 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-
----Q4 output
-| name      |
-| --------- |
-| IT        |
-| HR        |
-| Finance   |
-| Marketing |
-
----Q5 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe    | 28  | 50000.00 | 1             | 2020-01-15 |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
-
----String Matching Queries
----Q6 output
-| emp_id | name       | age | salary   | department_id | hire_date  |
-| ------ | ---------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe   | 28  | 50000.00 | 1             | 2020-01-15 |
-| 2      | Jane Smith | 34  | 60000.00 | 2             | 2019-07-23 |
-
----Q7 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe    | 28  | 50000.00 | 1             | 2020-01-15 |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 10     | Hannah Lee  | 30  | 53000.00 | 4             | 2020-02-25 |
-
----Q8 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 5      | Charlie P.  | 29  | 50000.00 | 2             | 2019-12-01 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
-| 10     | Hannah Lee  | 30  | 53000.00 | 4             | 2020-02-25 |
-
---Q9 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-
---Q10 output
-| emp_id | name      | age | salary   | department_id | hire_date  |
-| ------ | --------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe  | 28  | 50000.00 | 1             | 2020-01-15 |
-| 3      | Bob Brown | 45  | 80000.00 | 1             | 2018-02-12 |
-
----Data Queries
---Q11 output
-| emp_id | name       | age | salary   | department_id | hire_date  |
-| ------ | ---------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe   | 28  | 50000.00 | 1             | 2020-01-15 |
-| 10     | Hannah Lee | 30  | 53000.00 | 4             | 2020-02-25 |
-
---Q12 output
-| emp_id | name     | age | salary   | department_id | hire_date  |
-| ------ | -------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe | 28  | 50000.00 | 1             | 2020-01-15 |
-
---Q13 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
-
---Q14 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 7      | Eve Black   | 40  | 55000.00 | 3             | 2021-08-30 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-
---Q15 output
-| emp_id        | name | age | salary | department_id | hire_date |
-| ------------- | ---- | --- | ------ | ------------- | --------- |
-| No rows found |      |     |        |               |           |
-
----Aggregate Functions
---Q16 output
-| SUM(salary) |
-| ----------- |
-| 576000.00   |
-
---Q17 output
-| AVG(salary) |
-| ----------- |
-| 57600.00    |
-
---Q18 output
-| MIN(salary) |
-| ----------- |
-| 45000.00    |
-
---Q19 output
-| department_id | COUNT(*) |
-| ------------- | -------- |
-| 1             | 3        |
-| 2             | 2        |
-| 3             | 2        |
-| 4             | 2        |
-| NULL          | 1        |
-
---Q20 output
-| department_id | AVG(salary) |
-| ------------- | ----------- |
-| 1             | 65000.00    |
-| 2             | 55000.00    |
-| 3             | 50000.00    |
-| 4             | 61500.00    |
-| NULL          | 48000.00    |
+1. Query #1 Execution time: 0.29ms
+emp_id	name	salary	bonus	manager_id
+2	John	null	5000	102
+4	David	null	null	103
+6	Kiran	null	null	null
+8	Neha	null	2000	null
 
 
+2. Query #2 Execution time: 0.12ms
+order_id	customer_name	amount	discount	coupon_code
+102	John	null	50	null
+105	Priya	1500	100	null
+108	Neha	null	200	DISC15
 
 
+3. Query #3 Execution time: 0.09ms
+product_id	product_name	price	category	stock
+3	Tablet	30000	null	5
+4	Headphones	null	null	null
+7	Mouse	500	null	null
 
 
+4. Query #4 Execution time: 0.11ms
+null_managers
+3
 
 
+5. Query #5 Execution time: 0.12ms
+emp_id	salary
+1	50000
+2	0
+3	60000
+4	0
+5	45000
+6	0
+7	70000
+8	0
 
 
+6. Query #6 Execution time: 0.07ms
+emp_id	bonus
+1	1000
+2	5000
+3	1000
+4	1000
+5	3000
+6	1000
+7	7000
+8	2000
+
+7. Query #7 Execution time: 0.07ms
+order_id	amount
+101	1000
+102	500
+103	2000
+104	500
+105	1500
+106	500
+107	3000
+108	500
 
 
+8. Query #8 Execution time: 0.07ms
+product_id	stock
+1	10
+2	0
+3	5
+4	0
+5	0
+6	15
+7	0
+8	3
 
 
+9. Query #9 Execution time: 0.07ms
+emp_id	earnings
+1	50000
+2	5000
+3	60000
+4	null
+5	45000
+6	null
+7	70000
+8	2000
+
+
+10. Query #10 Execution time: 0.06ms
+emp_id	total_income
+1	50000
+2	5000
+3	60000
+4	0
+5	45000
+6	0
+7	70000
+8	2000
+
+
+11. Query #11 Execution time: 0.06ms
+product_id	price
+1	50000
+2	1000
+3	30000
+4	1000
+5	20000
+6	1000
+7	500
+8	1000
+
+
+12. Query #12 Execution time: 0.07ms
+customer_name	payment
+Amit	1000
+John	50
+Sara	2000
+David	0
+Priya	1500
+Kiran	0
+Ravi	3000
+Neha	200
+
+
+13. Query #13 Execution time: 0.08ms
+emp_id	salary
+1	50000
+2	null
+3	60000
+4	null
+5	45000
+6	null
+7	70000
+8	null
+
+
+14. Query #14 Execution time: 0.06ms
+order_id	discount
+101	null
+102	50
+103	null
+104	null
+105	100
+106	null
+107	null
+108	200
+
+
+15. Query #15 Execution time: 0.08ms
+order_id	safe_division
+101	null
+102	null
+103	null
+104	null
+105	15.0
+106	null
+107	null
+108	null
+
+
+16. Query #16 Execution time: 0.07ms
+order_id	coupon
+101	null
+102	null
+103	DISC20
+104	null
+105	null
+106	DISC5
+107	null
+108	DISC15
+
+
+17. Query #17 Execution time: 0.07ms
+emp_id	total_earnings
+1	50000
+2	5000
+3	60000
+4	0
+5	48000
+6	0
+7	77000
+8	2000
+
+
+18.  Query #18 Execution time: 0.08ms
+emp_id	name	salary	bonus	manager_id
+4	David	null	null	103
+6	Kiran	null	null	null
+
+19. Query #19 Execution time: 0.08ms
+product_id	product_name	price	category	stock
+2	Phone	null	Electronics	null
+6	Keyboard	null	Accessories	15
+8	Printer	null	Electronics	3
+
+
+20. Query #20 Execution time: 0.07ms
+order_id	customer_name	amount	discount	coupon_code
+104	David	null	null	null
+106	Kiran	null	null	DISC5
+
+21.  Query #21 Execution time: 0.07ms
+emp_id	income
+1	50000
+2	5000
+3	60000
+4	1000
+5	45000
+6	1000
+7	70000
+8	2000
+
+
+22. Query #22 Execution time: 0.07ms
+order_id	final_amount
+101	1000
+102	null
+103	2000
+104	null
+105	1400
+106	null
+107	3000
+108	null
+
+
+23. Query #23 Execution time: 0.07ms
+emp_id
+2
+4
