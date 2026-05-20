@@ -1,170 +1,124 @@
---Basic Queries
--- Q1 output
-
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe    | 28  | 50000.00 | 1             | 2020-01-15 |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 5      | Charlie P.  | 29  | 50000.00 | 2             | 2019-12-01 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-| 7      | Eve Black   | 40  | 55000.00 | 3             | 2021-08-30 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
-| 10     | Hannah Lee  | 30  | 53000.00 | 4             | 2020-02-25 |
-
--- Q2 output
-| name        | salary   |
-| ----------- | -------- |
-| John Doe    | 50000.00 |
-| Jane Smith  | 60000.00 |
-| Bob Brown   | 80000.00 |
-| Alice Blue  | 45000.00 |
-| Charlie P.  | 50000.00 |
-| David Green | 70000.00 |
-| Eve Black   | 55000.00 |
-| Frank White | 48000.00 |
-| Grace Kelly | 65000.00 |
-| Hannah Lee  | 53000.00 |
-
---- Q3 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-| 7      | Eve Black   | 40  | 55000.00 | 3             | 2021-08-30 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-
----Q4 output
-| name      |
-| --------- |
-| IT        |
-| HR        |
-| Finance   |
-| Marketing |
-
----Q5 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe    | 28  | 50000.00 | 1             | 2020-01-15 |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
-
----String Matching Queries
----Q6 output
-| emp_id | name       | age | salary   | department_id | hire_date  |
-| ------ | ---------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe   | 28  | 50000.00 | 1             | 2020-01-15 |
-| 2      | Jane Smith | 34  | 60000.00 | 2             | 2019-07-23 |
-
----Q7 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe    | 28  | 50000.00 | 1             | 2020-01-15 |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 10     | Hannah Lee  | 30  | 53000.00 | 4             | 2020-02-25 |
-
----Q8 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 5      | Charlie P.  | 29  | 50000.00 | 2             | 2019-12-01 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
-| 10     | Hannah Lee  | 30  | 53000.00 | 4             | 2020-02-25 |
-
---Q9 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-
---Q10 output
-| emp_id | name      | age | salary   | department_id | hire_date  |
-| ------ | --------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe  | 28  | 50000.00 | 1             | 2020-01-15 |
-| 3      | Bob Brown | 45  | 80000.00 | 1             | 2018-02-12 |
-
----Data Queries
---Q11 output
-| emp_id | name       | age | salary   | department_id | hire_date  |
-| ------ | ---------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe   | 28  | 50000.00 | 1             | 2020-01-15 |
-| 10     | Hannah Lee | 30  | 53000.00 | 4             | 2020-02-25 |
-
---Q12 output
-| emp_id | name     | age | salary   | department_id | hire_date  |
-| ------ | -------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe | 28  | 50000.00 | 1             | 2020-01-15 |
-
---Q13 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
-
---Q14 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 7      | Eve Black   | 40  | 55000.00 | 3             | 2021-08-30 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-
---Q15 output
-| emp_id        | name | age | salary | department_id | hire_date |
-| ------------- | ---- | --- | ------ | ------------- | --------- |
-| No rows found |      |     |        |               |           |
-
----Aggregate Functions
---Q16 output
-| SUM(salary) |
-| ----------- |
-| 576000.00   |
-
---Q17 output
-| AVG(salary) |
-| ----------- |
-| 57600.00    |
-
---Q18 output
-| MIN(salary) |
-| ----------- |
-| 45000.00    |
-
---Q19 output
-| department_id | COUNT(*) |
-| ------------- | -------- |
-| 1             | 3        |
-| 2             | 2        |
-| 3             | 2        |
-| 4             | 2        |
-| NULL          | 1        |
-
---Q20 output
-| department_id | AVG(salary) |
-| ------------- | ----------- |
-| 1             | 65000.00    |
-| 2             | 55000.00    |
-| 3             | 50000.00    |
-| 4             | 61500.00    |
-| NULL          | 48000.00    |
+-- 1.Display all students and the courses they are enrolled in.
+Query #1 Execution time: 0.54ms
+student_name	course_name
+Alice Johnson	SQL Basics
+Alice Johnson	Python Fundamentals
+Bob Smith	SQL Basics
+Charlie Brown	Cloud Computing
+Diana Prince	Cyber Security
+Ethan Hunt	null
+Fiona Green	null
 
 
+-- 2.Find all courses that currently have no students enrolled.
+Query #1 Execution time: 0.52ms
+course_id	course_name
+103	Data Analytics
+105	Machine Learning
 
+-- 3.Display all instructors and the courses they teach,
+Query #1 Execution time: 0.62ms
+instructor_name	course_name
+Sarah Connor	SQL Basics
+Michael Scott	Python Fundamentals
+Tony Stark	Cloud Computing
+Bruce Wayne	Cyber Security
 
+-- 4.Find all courses that do not have an instructor assigned.
+Query #1 Execution time: 0.24ms
+course_id	course_name
+103	Data Analytics
+105	Machine Learning
 
+-- 5.Display all students and enrollment information using a RIGHT JOIN.
+Query #1 Execution time: 0.48ms
+student_name	enrollment_id	course_id	enrollment_date
+Alice Johnson	1	101	2024-01-10
+Alice Johnson	2	102	2024-01-12
+Bob Smith	3	101	2024-01-15
+Charlie Brown	4	104	2024-01-20
+Diana Prince	5	106	2024-01-25
 
+-- 6.Find students who are not enrolled in any course.
+Query #1 Execution time: 0.48ms
+student_id	student_name
+5	Ethan Hunt
+6	Fiona Green
 
+-- 7.Use a FULL OUTER JOIN to display all students and enrollments
+Query #1 Execution time: 0.5ms
+student_name	enrollment_id	course_id	enrollment_date
+Alice Johnson	1	101	2024-01-10
+Alice Johnson	2	102	2024-01-12
+Bob Smith	3	101	2024-01-15
+Charlie Brown	4	104	2024-01-20
+Diana Prince	5	106	2024-01-25
+Ethan Hunt	null	null	null
+Fiona Green	null	null	null
 
+-- 8.Find all courses that have never appeared in the enrollments table.
+Query #1 Execution time: 0.46ms
+course_id	course_name
+103	Data Analytics
+105	Machine Learning
 
+--9.Display all instructors and courses using a FULL OUTER JOIN
+Query #1 Execution time: 0.43ms
+instructor_name	course_name
+Sarah Connor	SQL Basics
+Michael Scott	Python Fundamentals
+null	Data Analytics
+Tony Stark	Cloud Computing
+null	Machine Learning
+Bruce Wayne	Cyber Security
 
+--10
+Query #1 Execution time: 0.79ms
+student_name	course_name	instructor_name
+Alice Johnson	SQL Basics	Sarah Connor
+Alice Johnson	Python Fundamentals	Michael Scott
+Bob Smith	SQL Basics	Sarah Connor
+Charlie Brown	Cloud Computing	Tony Stark
+Diana Prince	Cyber Security	Bruce Wayne
+Ethan Hunt	null	null
+Fiona Green	null	null
 
-
-
-
+-- Bonus Challenge
+Query #1 Execution time: 0.31ms
+student_name	course_name
+Alice Johnson	SQL Basics
+Bob Smith	SQL Basics
+Charlie Brown	SQL Basics
+Diana Prince	SQL Basics
+Ethan Hunt	SQL Basics
+Fiona Green	SQL Basics
+Alice Johnson	Python Fundamentals
+Bob Smith	Python Fundamentals
+Charlie Brown	Python Fundamentals
+Diana Prince	Python Fundamentals
+Ethan Hunt	Python Fundamentals
+Fiona Green	Python Fundamentals
+Alice Johnson	Data Analytics
+Bob Smith	Data Analytics
+Charlie Brown	Data Analytics
+Diana Prince	Data Analytics
+Ethan Hunt	Data Analytics
+Fiona Green	Data Analytics
+Alice Johnson	Cloud Computing
+Bob Smith	Cloud Computing
+Charlie Brown	Cloud Computing
+Diana Prince	Cloud Computing
+Ethan Hunt	Cloud Computing
+Fiona Green	Cloud Computing
+Alice Johnson	Machine Learning
+Bob Smith	Machine Learning
+Charlie Brown	Machine Learning
+Diana Prince	Machine Learning
+Ethan Hunt	Machine Learning
+Fiona Green	Machine Learning
+Alice Johnson	Cyber Security
+Bob Smith	Cyber Security
+Charlie Brown	Cyber Security
+Diana Prince	Cyber Security
+Ethan Hunt	Cyber Security
+Fiona Green	Cyber Security
