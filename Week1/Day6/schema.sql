@@ -1,62 +1,72 @@
--- Create Department table
-CREATE TABLE Department (
-    department_id INT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL
+
+-- SQL Window Functions and CTE Assignment
+-- Compatible with PostgreSQL
+
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS employees;
+
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    employee_name VARCHAR(100),
+    department VARCHAR(100),
+    manager_id INT NULL,
+    salary DECIMAL(10,2),
+    hire_date DATE
 );
 
--- Create Employee table
-CREATE TABLE Employee (
-    emp_id INT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    age INT,
-    salary DECIMAL(10, 2),
-    department_id INT,
-    hire_date DATE,
-    FOREIGN KEY (department_id) REFERENCES Department(department_id)
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(100),
+    city VARCHAR(100)
 );
 
--- Create Project table
-CREATE TABLE Project (
-    project_id INT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    department_id INT,
-    FOREIGN KEY (department_id) REFERENCES Department(department_id)
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    employee_id INT,
+    order_date DATE,
+    total_amount DECIMAL(10,2),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
 
--- Insert data into Department table
-INSERT INTO Department (department_id, name) VALUES
-(1, 'IT'),
-(2, 'HR'),
-(3, 'Finance'),
-(4, 'Marketing');
+-- Insert Employees
+INSERT INTO employees VALUES
+(1, 'Alice Johnson', 'Sales', NULL, 70000, '2020-01-15'),
+(2, 'Bob Smith', 'Sales', 1, 65000, '2021-03-20'),
+(3, 'Charlie Brown', 'IT', NULL, 90000, '2019-07-01'),
+(4, 'Diana Prince', 'IT', 3, 95000, '2018-11-11'),
+(5, 'Ethan Hunt', 'HR', NULL, 60000, '2022-02-10'),
+(6, 'Fiona Green', 'HR', 5, 58000, '2023-05-12'),
+(7, 'George Miller', 'Finance', NULL, 85000, '2017-09-18'),
+(8, 'Hannah Lee', 'Finance', 7, 82000, '2021-08-30');
 
--- Insert data into Employee table
-INSERT INTO Employee (emp_id, name, age, salary, department_id, hire_date) VALUES
-(1, 'John Doe', 28, 50000.00, 1, '2020-01-15'),
-(2, 'Jane Smith', 34, 60000.00, 2, '2019-07-23'),
-(3, 'Bob Brown', 45, 80000.00, 1, '2018-02-12'),
-(4, 'Alice Blue', 25, 45000.00, 3, '2021-03-22'),
-(5, 'Charlie P.', 29, 50000.00, 2, '2019-12-01'),
-(6, 'David Green', 38, 70000.00, 4, '2022-05-18'),
-(7, 'Eve Black', 40, 55000.00, 3, '2021-08-30');
+-- Insert Customers
+INSERT INTO customers VALUES
+(1, 'Acme Corp', 'New York'),
+(2, 'Tech Solutions', 'Chicago'),
+(3, 'Global Retail', 'Dallas'),
+(4, 'Blue Sky Ltd', 'Seattle'),
+(5, 'NextGen Systems', 'Boston');
 
--- Insert data into Project table
-INSERT INTO Project (project_id, name, department_id) VALUES
-(1, 'Project Alpha', 1),
-(2, 'Project Beta', 2),
-(3, 'Project Gamma', 1),
-(4, 'Project Delta', 3),
-(5, 'Project Epsilon', 4),
-(6, 'Project Zeta', 4),
-(7, 'Project Eta', 3);
+-- Insert Orders
+INSERT INTO orders VALUES
+(101, 1, 1, '2024-01-10', 500),
+(102, 2, 2, '2024-01-11', 700),
+(103, 1, 1, '2024-01-15', 1200),
+(104, 3, 3, '2024-01-18', 300),
+(105, 4, 4, '2024-01-20', 900),
+(106, 5, 2, '2024-01-25', 1500),
+(107, 2, 1, '2024-02-01', 650),
+(108, 1, 3, '2024-02-05', 1100),
+(109, 3, 4, '2024-02-10', 400),
+(110, 4, 2, '2024-02-15', 950),
+(111, 5, 1, '2024-02-20', 2000),
+(112, 1, 4, '2024-02-25', 750);
 
-
-INSERT INTO Employee (emp_id, name, age, salary, department_id, hire_date) VALUES
-(8, 'Frank White', 32, 48000.00, NULL, '2021-07-10'),  -- Employee without a department
-(9, 'Grace Kelly', 27, 65000.00, 1, '2018-11-13'),
-(10, 'Hannah Lee', 30, 53000.00, 4, '2020-02-25');
-
-
-INSERT INTO Project (project_id, name, department_id) VALUES
-(8, 'Project Theta', 1),
-(9, 'Project Iota', NULL);  -- Project without a department
+-- Notes:
+-- Multiple departments for PARTITION BY exercises.
+-- Salary variations for ranking exercises.
+-- Multiple customer orders for LAG/LEAD analysis.
+-- Manager hierarchy included for recursive CTE practice.
