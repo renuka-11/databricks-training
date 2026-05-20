@@ -1,53 +1,108 @@
--- Basic Queries
----Q1 
-SELECT * FROM Employee;
----Q2
-select name ,salary from Employee;
----Q3
-select * from Employee where age>30;
----Q4
-select name from Department;
----Q5
-select * from Employee where department_id=1;
+-- 1
+select employee_name,salary,
+row_number() over(order by salary desc) as row_num
+from employees;
 
----String Matching Queries
---Q6 
-select * from Employee where name LIKE 'J%';
---Q7
-select * from Employee where name LIKE '%e';
---Q8
-select * from Employee where name LIKE '%a%';
---Q9
-select * from Employee where name LIKE '_________';
---Q10
-select * from Employee where name LIKE '_o%';
+-- 2
+select employee_name,salary,
+rank() over(order by salary desc) as rank_num
+from employees;
 
----Data Queries
---Q11
-select * from Employee where Year(hire_date)=2020;
---Q12
-select * from Employee where month(hire_date)=1;
---Q13
-select * from Employee where hire_date<'2019-01-01';
---Q14
-select * from Employee where hire_date>='2021-03-01';
---Q15
-select * from Employee where hire_date>=CURDATE()- INTERVAL 2 year;
+-- 3
+select employee_name,salary,
+dense_rank() over(order by salary desc) as dense_rank_num
+from employees;
 
----Aggregate Functions
---Q16
-select sum(salary) from Employee
---Q17
-select avg(salary) from Employee
---Q18
-select min(salary) from Employee
---Q19
-select department_id, count(*) from Employee GROUP BY department_id;
---Q20
-select department_id,avg(salary) from Employee group by department_id;
+-- 4
+select employee_name,salary
+from(
+    select employee_name,salary,
+    row_number() over(order by salary desc) as rn
+    from employees
+) a
+where rn<=3;
 
+-- 5
+select employee_name,department,salary,
+rank() over(partition by department order by salary desc) as dept_rank
+from employees;
 
+-- 6
+select employee_name,department,salary,
+max(salary) over(partition by department) as highest_salary
+from employees;
 
+-- 7
+select order_id,order_date,total_amount,
+sum(total_amount) over(order by order_date) as running_total
+from orders;
 
+-- 8
+select employee_id,order_date,total_amount,
+sum(total_amount) over(
+partition by employee_id
+order by order_date
+) as cumulative_sales
+from orders;
 
+-- 9
+select customer_id,order_date,total_amount,
+lag(total_amount) over(
+partition by customer_id
+order by order_date
+) as previous_order
+from orders;
 
+-- 10
+select customer_id,order_date,total_amount,
+lead(total_amount) over(
+partition by customer_id
+order by order_date
+) as next_order
+from orders;
+
+-- 11
+select customer_id,order_date,total_amount,
+total_amount -
+lag(total_amount) over(
+partition by customer_id
+order by order_date
+) as difference
+from orders;
+
+-- 12
+select order_id,order_date,total_amount,
+avg(total_amount) over(
+order by order_date
+rows between 2 preceding and current row
+) as moving_avg
+from orders;
+
+-- 13
+select employee_name,salary,
+ntile(4) over(order by salary desc) as quartile
+from employees;
+
+-- 14
+select *
+from(
+    select *,
+    row_number() over(
+    partition by customer_id
+    order by order_date
+    ) as rn
+    from orders
+) a
+where rn=1;
+
+-- 15
+select *
+from(
+    select *,
+    row_number() over(
+    partition by customer_id
+    order by order_date desc
+    ) as rn
+    from orders
+) a
+where rn=1;
