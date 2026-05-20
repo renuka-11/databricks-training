@@ -1,53 +1,60 @@
--- Basic Queries
----Q1 
-SELECT * FROM Employee;
----Q2
-select name ,salary from Employee;
----Q3
-select * from Employee where age>30;
----Q4
-select name from Department;
----Q5
-select * from Employee where department_id=1;
+-- 1. Display all students and the courses they are enrolled in.
+SELECT s.student_name,c.course_name
+FROM students s
+LEFT JOIN enrollments e ON s.student_id=e.student_id
+LEFT JOIN courses c ON e.course_id=c.course_id;
 
----String Matching Queries
---Q6 
-select * from Employee where name LIKE 'J%';
---Q7
-select * from Employee where name LIKE '%e';
---Q8
-select * from Employee where name LIKE '%a%';
---Q9
-select * from Employee where name LIKE '_________';
---Q10
-select * from Employee where name LIKE '_o%';
+-- 2. Find all courses that currently have no students enrolled.
+SELECT c.course_id,c.course_name
+FROM courses c
+LEFT JOIN enrollments e ON c.course_id=e.course_id
+WHERE e.course_id IS NULL;
 
----Data Queries
---Q11
-select * from Employee where Year(hire_date)=2020;
---Q12
-select * from Employee where month(hire_date)=1;
---Q13
-select * from Employee where hire_date<'2019-01-01';
---Q14
-select * from Employee where hire_date>='2021-03-01';
---Q15
-select * from Employee where hire_date>=CURDATE()- INTERVAL 2 year;
+-- 3. Display all instructors and the courses they teach.
+SELECT i.instructor_name,c.course_name
+FROM instructors i
+LEFT JOIN courses c ON i.instructor_id=c.instructor_id;
 
----Aggregate Functions
---Q16
-select sum(salary) from Employee
---Q17
-select avg(salary) from Employee
---Q18
-select min(salary) from Employee
---Q19
-select department_id, count(*) from Employee GROUP BY department_id;
---Q20
-select department_id,avg(salary) from Employee group by department_id;
+-- 4. Find all courses without an instructor.
+SELECT course_id,course_name
+FROM courses
+WHERE instructor_id IS NULL;
 
+-- 5. Display all students and enrollment information using RIGHT JOIN.
+SELECT s.student_name,e.enrollment_id,e.course_id,e.enrollment_date
+FROM students s
+RIGHT JOIN enrollments e ON s.student_id=e.student_id;
 
+-- 6. Find students not enrolled in any course.
+SELECT s.student_id,s.student_name
+FROM students s
+LEFT JOIN enrollments e ON s.student_id=e.student_id
+WHERE e.student_id IS NULL;
 
+-- 7. FULL OUTER JOIN of students and enrollments.
+SELECT s.student_name,e.enrollment_id,e.course_id,e.enrollment_date
+FROM students s
+FULL OUTER JOIN enrollments e ON s.student_id=e.student_id;
 
+-- 8. Find courses never enrolled by any student.
+SELECT c.course_id,c.course_name
+FROM courses c
+LEFT JOIN enrollments e ON c.course_id=e.course_id
+WHERE e.course_id IS NULL;
 
+-- 9. FULL OUTER JOIN of instructors and courses.
+SELECT i.instructor_name,c.course_name
+FROM instructors i
+FULL OUTER JOIN courses c ON i.instructor_id=c.instructor_id;
 
+-- 10. Report: student name, course name, instructor name.
+SELECT s.student_name,c.course_name,i.instructor_name
+FROM students s
+LEFT JOIN enrollments e ON s.student_id=e.student_id
+LEFT JOIN courses c ON e.course_id=c.course_id
+LEFT JOIN instructors i ON c.instructor_id=i.instructor_id;
+
+-- Bonus Challenge: every student with every course.
+SELECT s.student_name,c.course_name
+FROM students s
+CROSS JOIN courses c;
