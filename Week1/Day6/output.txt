@@ -1,170 +1,154 @@
---Basic Queries
--- Q1 output
+---16
+Query #1 Execution time: 0.58ms
+employee_name	department	salary	avg_salary
+George Miller	Finance	85000.00	83500.000000000000
+Hannah Lee	Finance	82000.00	83500.000000000000
+Ethan Hunt	HR	60000.00	59000.000000000000
+Fiona Green	HR	58000.00	59000.000000000000
+Charlie Brown	IT	90000.00	92500.000000000000
+Diana Prince	IT	95000.00	92500.000000000000
+Alice Johnson	Sales	70000.00	67500.000000000000
+Bob Smith	Sales	65000.00	67500.000000000000
 
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe    | 28  | 50000.00 | 1             | 2020-01-15 |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 5      | Charlie P.  | 29  | 50000.00 | 2             | 2019-12-01 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-| 7      | Eve Black   | 40  | 55000.00 | 3             | 2021-08-30 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
-| 10     | Hannah Lee  | 30  | 53000.00 | 4             | 2020-02-25 |
+---17
+Query #1 Execution time: 0.67ms
+employee_name	department	salary	avg_salary
+George Miller	Finance	85000.00	83500.000000000000
+Ethan Hunt	HR	60000.00	59000.000000000000
+Diana Prince	IT	95000.00	92500.000000000000
+Alice Johnson	Sales	70000.00	67500.000000000000
 
--- Q2 output
-| name        | salary   |
-| ----------- | -------- |
-| John Doe    | 50000.00 |
-| Jane Smith  | 60000.00 |
-| Bob Brown   | 80000.00 |
-| Alice Blue  | 45000.00 |
-| Charlie P.  | 50000.00 |
-| David Green | 70000.00 |
-| Eve Black   | 55000.00 |
-| Frank White | 48000.00 |
-| Grace Kelly | 65000.00 |
-| Hannah Lee  | 53000.00 |
+---18
+Query #1 Execution time: 0.61ms
+employee_name	department	salary	department_payroll
+George Miller	Finance	85000.00	167000.00
+Hannah Lee	Finance	82000.00	167000.00
+Ethan Hunt	HR	60000.00	118000.00
+Fiona Green	HR	58000.00	118000.00
+Charlie Brown	IT	90000.00	185000.00
+Diana Prince	IT	95000.00	185000.00
+Alice Johnson	Sales	70000.00	135000.00
+Bob Smith	Sales	65000.00	135000.00
 
---- Q3 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-| 7      | Eve Black   | 40  | 55000.00 | 3             | 2021-08-30 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
+---19
+Query #1 Execution time: 0.67ms
+employee_name	department	salary	percentage_share
+George Miller	Finance	85000.00	50.90
+Hannah Lee	Finance	82000.00	49.10
+Ethan Hunt	HR	60000.00	50.85
+Fiona Green	HR	58000.00	49.15
+Charlie Brown	IT	90000.00	48.65
+Diana Prince	IT	95000.00	51.35
+Alice Johnson	Sales	70000.00	51.85
+Bob Smith	Sales	65000.00	48.15
 
----Q4 output
-| name      |
-| --------- |
-| IT        |
-| HR        |
-| Finance   |
-| Marketing |
+---20
+Query #1 Execution time: 0.34ms
+employee_name	department	total_employees
+Alice Johnson	Sales	8
+Bob Smith	Sales	8
+Charlie Brown	IT	8
+Diana Prince	IT	8
+Ethan Hunt	HR	8
+Fiona Green	HR	8
+George Miller	Finance	8
+Hannah Lee	Finance	8
 
----Q5 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe    | 28  | 50000.00 | 1             | 2020-01-15 |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
+---21
+Query #1 Execution time: 0.48ms
+employee_id	total_sales
+3	1400.00
+4	2050.00
+2	3150.00
+1	4350.00
 
----String Matching Queries
----Q6 output
-| emp_id | name       | age | salary   | department_id | hire_date  |
-| ------ | ---------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe   | 28  | 50000.00 | 1             | 2020-01-15 |
-| 2      | Jane Smith | 34  | 60000.00 | 2             | 2019-07-23 |
+---22
+Query #1 Execution time: 0.63ms
+employee_id	total_sales
+2	3150.00
+1	4350.00
 
----Q7 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe    | 28  | 50000.00 | 1             | 2020-01-15 |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 10     | Hannah Lee  | 30  | 53000.00 | 4             | 2020-02-25 |
+---23
+Query #1 Execution time: 5.83ms
+customer_id	total_spent	customer_rank
+1	3550.00	1
+5	3500.00	2
+4	1850.00	3
+2	1350.00	4
+3	700.00	5
 
----Q8 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 5      | Charlie P.  | 29  | 50000.00 | 2             | 2019-12-01 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
-| 10     | Hannah Lee  | 30  | 53000.00 | 4             | 2020-02-25 |
+---24
+Query #1 Execution time: 0.31ms
+n
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
 
---Q9 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 2      | Jane Smith  | 34  | 60000.00 | 2             | 2019-07-23 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
+---25
+Query #1 Execution time: 0.65ms
+employee_id	employee_name	manager_id	level
+1	Alice Johnson	null	1
+3	Charlie Brown	null	1
+5	Ethan Hunt	null	1
+7	George Miller	null	1
+2	Bob Smith	1	2
+4	Diana Prince	3	2
+6	Fiona Green	5	2
+8	Hannah Lee	7	2
 
---Q10 output
-| emp_id | name      | age | salary   | department_id | hire_date  |
-| ------ | --------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe  | 28  | 50000.00 | 1             | 2020-01-15 |
-| 3      | Bob Brown | 45  | 80000.00 | 1             | 2018-02-12 |
+---26
+Query #1 Execution time: 0.51ms
+order_id	customer_id	employee_id	order_date	total_amount
+103	1	1	2024-01-15	1200.00
+106	5	2	2024-01-25	1500.00
+108	1	3	2024-02-05	1100.00
+110	4	2	2024-02-15	950.00
+111	5	1	2024-02-20	2000.00
 
----Data Queries
---Q11 output
-| emp_id | name       | age | salary   | department_id | hire_date  |
-| ------ | ---------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe   | 28  | 50000.00 | 1             | 2020-01-15 |
-| 10     | Hannah Lee | 30  | 53000.00 | 4             | 2020-02-25 |
+---27
+Query #1 Execution time: 0.92ms
+customer_id	total_spent	rank_num
+1	3550.00	1
+5	3500.00	2
+4	1850.00	3
+2	1350.00	4
+3	700.00	5
 
---Q12 output
-| emp_id | name     | age | salary   | department_id | hire_date  |
-| ------ | -------- | --- | -------- | ------------- | ---------- |
-| 1      | John Doe | 28  | 50000.00 | 1             | 2020-01-15 |
+---28
+Query #1 Execution time: 0.8ms
+employee_name	department	salary	rn
+Hannah Lee	Finance	82000.00	2
+Fiona Green	HR	58000.00	2
+Charlie Brown	IT	90000.00	2
+Bob Smith	Sales	65000.00	2
 
---Q13 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 3      | Bob Brown   | 45  | 80000.00 | 1             | 2018-02-12 |
-| 9      | Grace Kelly | 27  | 65000.00 | 1             | 2018-11-13 |
+---29
+Query #1 Execution time: 0.62ms
+employee_name	department	salary	salary_difference
+George Miller	Finance	85000.00	0.00
+Hannah Lee	Finance	82000.00	3000.00
+Ethan Hunt	HR	60000.00	0.00
+Fiona Green	HR	58000.00	2000.00
+Charlie Brown	IT	90000.00	5000.00
+Diana Prince	IT	95000.00	0.00
+Alice Johnson	Sales	70000.00	0.00
+Bob Smith	Sales	65000.00	5000.00
 
---Q14 output
-| emp_id | name        | age | salary   | department_id | hire_date  |
-| ------ | ----------- | --- | -------- | ------------- | ---------- |
-| 4      | Alice Blue  | 25  | 45000.00 | 3             | 2021-03-22 |
-| 7      | Eve Black   | 40  | 55000.00 | 3             | 2021-08-30 |
-| 8      | Frank White | 32  | 48000.00 | NULL          | 2021-07-10 |
-| 6      | David Green | 38  | 70000.00 | 4             | 2022-05-18 |
+---30
+Query #1 Execution time: 1.2ms
+employee_id	employee_name	department	total_sales	rn
+4	Diana Prince	IT	2050.00	1
+1	Alice Johnson	Sales	4350.00	1
 
---Q15 output
-| emp_id        | name | age | salary | department_id | hire_date |
-| ------------- | ---- | --- | ------ | ------------- | --------- |
-| No rows found |      |     |        |               |           |
-
----Aggregate Functions
---Q16 output
-| SUM(salary) |
-| ----------- |
-| 576000.00   |
-
---Q17 output
-| AVG(salary) |
-| ----------- |
-| 57600.00    |
-
---Q18 output
-| MIN(salary) |
-| ----------- |
-| 45000.00    |
-
---Q19 output
-| department_id | COUNT(*) |
-| ------------- | -------- |
-| 1             | 3        |
-| 2             | 2        |
-| 3             | 2        |
-| 4             | 2        |
-| NULL          | 1        |
-
---Q20 output
-| department_id | AVG(salary) |
-| ------------- | ----------- |
-| 1             | 65000.00    |
-| 2             | 55000.00    |
-| 3             | 50000.00    |
-| 4             | 61500.00    |
-| NULL          | 48000.00    |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---bonus
+Query #1 Execution time: 6.33ms
+month	total_sales	running_total	previous_sales	growth_percentage
+2024-01	5100.00	5100.00	null	null
+2024-02	5850.00	10950.00	5100.00	14.71
